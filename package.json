@@ -2,16 +2,65 @@
   "name": "whatsapp-electron",
   "version": "1.1.1",
   "description": "Unofficial desktop client for WhatsApp Web",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "electron .",
-    "build": "electron-builder ."
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "make-mac": "electron-forge make --platform darwin",
+    "make-mac-aarch": "electron-forge make --platform darwin --arch arm64",
+    "publish": "electron-forge publish"
   },
-  "repository": "https://github.com/kenxjy/whatsapp-electron",
-  "author": "Kenneth Yue",
-  "license": "LGPL-3.0",
+  "repository": "https://github.com/mvgiacomello/whatsapp-electron",
+  "author": {
+    "name": "Mauricio Giacomello",
+    "email": "mvgiacomello@gmail.com"
+  },
+  "license": "MIT",
+  "build": {
+    "appId": "whatsapp-electron",
+    "icon": "assets/icon"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "icon": "assets/icon",
+        "name": "Zap"
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "zap_wrapper",
+            "icon": "../assets/icon"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
+  },
   "devDependencies": {
-    "electron": "^9.1.0",
-    "electron-builder": "^22.8.0"
+    "@electron-forge/cli": "^6.0.0-beta.57",
+    "@electron-forge/maker-deb": "^6.0.0-beta.57",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.57",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.57",
+    "@electron-forge/maker-zip": "^6.0.0-beta.57",
+    "electron": "13.0.1"
   }
 }

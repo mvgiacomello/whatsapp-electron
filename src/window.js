@@ -7,7 +7,7 @@ function loadWhatsApp() {
   const window = new BrowserWindow({
     width: 1024,
     height: 768,
-    icon: path.join(__dirname, '../assets/512x512.png'),
+    icon: path.join(__dirname, '../assets/icon.png'),
     webPreferences: { 
       // devTools: false,
       preload: path.join(__dirname, 'preload.js')

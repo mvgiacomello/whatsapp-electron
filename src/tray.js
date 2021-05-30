@@ -2,7 +2,7 @@ const { Tray, Menu, MenuItem } = require('electron');
 const path = require('path');
 
 function createTrayIconFor(window, app) {
-  const tray = new Tray(path.join(__dirname, '../assets/512x512.png'));
+  const tray = new Tray(path.join(__dirname, '../assets/icon.png'));
 
   const showWindowMenuItem = new MenuItem({
     label: 'Show Window', click: () => {

@@ -1,7 +1,7 @@
 const { app } = require('electron')
-const { loadWhatsApp } = require('./src/window');
-const { createTrayIconFor } = require('./src/tray');
-const { clearServiceWorkers } = require('./src/session');
+const { loadWhatsApp } = require('./window');
+const { createTrayIconFor } = require('./tray');
+const { clearServiceWorkers } = require('./session');
 
 let window;
 let tray;
